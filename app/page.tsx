@@ -24,13 +24,13 @@ export default function Home() {
 
   const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId)
-    const refs: { [key: string]: React.RefObject<HTMLDivElement> } = {
-      projects: projectsRef,
-      contact: contactRef,
+    const refs: { [key: string]: React.RefObject<HTMLDivElement | null> } = {
       about: aboutRef,
+      projects: projectsRef,
       experience: experienceRef,
       skills: skillsRef,
       fullstack: fullStackRef,
+      contact: contactRef,
     }
 
     const ref = refs[sectionId]
@@ -52,24 +52,37 @@ export default function Home() {
 
       <Navigation activeSection={activeSection} setActiveSection={scrollToSection} />
       <Hero onViewWork={() => scrollToSection("projects")} onGetInTouch={() => scrollToSection("contact")} />
-      <div ref={aboutRef}>
+      
+      {/* About Section */}
+      <section id="about" ref={aboutRef}>
         <About />
-      </div>
-      <div ref={projectsRef}>
+      </section>
+      
+      {/* Projects Section */}
+      <section id="projects" ref={projectsRef}>
         <Projects />
-      </div>
-      <div ref={experienceRef}>
+      </section>
+      
+      {/* Experience Section */}
+      <section id="experience" ref={experienceRef}>
         <Experience />
-      </div>
-      <div ref={skillsRef}>
+      </section>
+      
+      {/* Skills Section */}
+      <section id="skills" ref={skillsRef}>
         <Skills />
-      </div>
-      <div ref={fullStackRef}>
+      </section>
+      
+      {/* Full Stack Showcase Section */}
+      <section id="fullstack" ref={fullStackRef}>
         <FullStackShowcase />
-      </div>
-      <div ref={contactRef}>
+      </section>
+      
+      {/* Contact Section */}
+      <section id="contact" ref={contactRef}>
         <Contact />
-      </div>
+      </section>
+      
       <Footer />
     </div>
   )

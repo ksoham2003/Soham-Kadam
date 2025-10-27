@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-bold gradient-text mb-2">SK</h3>
-            <p className="text-muted-foreground">Frontend Developer & UI Enthusiast</p>
+            <p className="text-muted-foreground">Full-Stack Developer & UI Enthusiast</p>
           </div>
 
           {/* Quick Links */}

@@ -29,20 +29,6 @@ const experiences = [
     ],
     technologies: ["Python", "React.js", "PostgreSQL", "Node.js"],
   },
-  {
-    id: 3,
-    role: "Frontend Developer",
-    company: "tCognition",
-    period: "Mar 2025 – Present",
-    description:
-      "Designed responsive UI using Next.js and integrated Google Gemini API. Focused on seamless user interaction and real-time feedback flow.",
-    achievements: [
-      "Designed responsive UI with Next.js",
-      "Integrated Google Gemini API for AI-powered features",
-      "Conducted iterative testing for layout optimization",
-    ],
-    technologies: ["PostgreSQL", "Next.js", "Google Gemini API", "TypeScript"],
-  },
 ]
 
 export async function GET() {
