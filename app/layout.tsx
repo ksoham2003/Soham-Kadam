@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import FaviconManager from '@/components/FaviconManager'
 import './globals.css'
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geist = Geist({ subsets: ["latin"] })
 const geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -58,6 +59,7 @@ export default function RootLayout({
           {children}
           <Analytics />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   )
