@@ -605,3 +605,168 @@
     }
   }
 }
+
+.hero-loader-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+  z-index: 0;/* Increased opacity */
+}
+
+.hero-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: hero-loader-rotate 3s linear infinite;
+  z-index: 0;
+}
+
+@keyframes hero-loader-rotate {
+  0% {
+    transform: rotate(0deg);
+    box-shadow:
+      0 0 20px 0 rgba(147, 51, 234, 0.6) inset,
+      0 0 30px 0 rgba(99, 102, 241, 0.4) inset,
+      0 0 40px 0 rgba(168, 85, 247, 0.3) inset;
+  }
+  50% {
+    transform: rotate(180deg);
+    box-shadow:
+      0 0 25px 0 rgba(236, 72, 153, 0.6) inset,
+      0 0 35px 0 rgba(219, 39, 119, 0.4) inset,
+      0 0 45px 0 rgba(190, 24, 93, 0.3) inset;
+  }
+  100% {
+    transform: rotate(360deg);
+    box-shadow:
+      0 0 20px 0 rgba(147, 51, 234, 0.6) inset,
+      0 0 30px 0 rgba(99, 102, 241, 0.4) inset,
+      0 0 40px 0 rgba(168, 85, 247, 0.3) inset;
+  }
+}
+
+.hero-loader-letter {
+  display: inline-block;
+  color: rgba(147, 51, 234, 0.8); /* Purple color for visibility */
+  font-weight: 600;
+  opacity: 0.6;
+  transform: translateY(0);
+  animation: hero-loader-letter-anim 3s infinite;
+  z-index: 1;
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+}
+
+.hero-loader-letter:nth-child(1) { animation-delay: 0s; }
+.hero-loader-letter:nth-child(2) { animation-delay: 0.15s; }
+.hero-loader-letter:nth-child(3) { animation-delay: 0.3s; }
+.hero-loader-letter:nth-child(4) { animation-delay: 0.45s; }
+.hero-loader-letter:nth-child(5) { animation-delay: 0.6s; }
+.hero-loader-letter:nth-child(6) { animation-delay: 0.75s; }
+.hero-loader-letter:nth-child(7) { animation-delay: 0.9s; }
+.hero-loader-letter:nth-child(8) { animation-delay: 1.05s; }
+.hero-loader-letter:nth-child(9) { animation-delay: 1.2s; }
+.hero-loader-letter:nth-child(10) { animation-delay: 1.35s; }
+
+@keyframes hero-loader-letter-anim {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.2);
+    color: rgba(99, 102, 241, 0.9);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(0) scale(1.1);
+    color: rgba(168, 85, 247, 0.9);
+  }
+}
+
+/* Dark mode adjustments */
+.dark .hero-loader-letter {
+  color: rgba(199, 210, 254, 0.8);
+}
+
+.dark .hero-loader {
+  opacity: 0.5;
+}
+
+.light .hero-loader {
+  opacity: 0.35;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fade-out-down {
+  animation: fadeOutDown 0.8s ease-out;
+}
+
+/* Staggered children animations */
+.stagger-animate > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.stagger-animate.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-animate.visible > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-animate.visible > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-animate.visible > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-animate.visible > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-animate.visible > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-animate.visible > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .animate-fade-out-down,
+  .stagger-animate > * {
+    animation: none;
+    transition: none;
+  }
+}

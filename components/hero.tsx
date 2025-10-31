@@ -10,6 +10,7 @@ interface HeroProps {
 export default function Hero({ onViewWork, onGetInTouch }: HeroProps) {
   return (
     <section className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
+      {/* Background gradient effects */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-float" />
         <div
@@ -20,6 +21,47 @@ export default function Hero({ onViewWork, onGetInTouch }: HeroProps) {
           className="absolute top-1/2 left-1/2 w-96 h-96 bg-secondary/10 rounded-full blur-3xl animate-float"
           style={{ animationDelay: "2s" }}
         />
+        
+        {/* Animated Loaders in Background - Fixed Positioning */}
+        <div className="absolute top-20 left-20 hero-loader-wrapper" style={{ width: '180px', height: '180px' }}>
+          <div className="hero-loader"></div>
+          <div className="flex items-center justify-center w-full h-full">
+            <span className="hero-loader-letter">F</span>
+            <span className="hero-loader-letter">U</span>
+            <span className="hero-loader-letter">L</span>
+            <span className="hero-loader-letter">L</span>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-40 right-20 hero-loader-wrapper" style={{ width: '140px', height: '140px' }}>
+          <div className="hero-loader"></div>
+          <div className="flex items-center justify-center w-full h-full">
+            <span className="hero-loader-letter">S</span>
+            <span className="hero-loader-letter">T</span>
+            <span className="hero-loader-letter">A</span>
+            <span className="hero-loader-letter">C</span>
+            <span className="hero-loader-letter">K</span>
+          </div>
+        </div>
+        
+        <div className="absolute top-40 right-40 hero-loader-wrapper" style={{ width: '120px', height: '120px' }}>
+          <div className="hero-loader"></div>
+          <div className="flex items-center justify-center w-full h-full">
+            <span className="hero-loader-letter">D</span>
+            <span className="hero-loader-letter">E</span>
+            <span className="hero-loader-letter">V</span>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-20 left-40 hero-loader-wrapper" style={{ width: '160px', height: '160px' }}>
+          <div className="hero-loader"></div>
+          <div className="flex items-center justify-center w-full h-full">
+            <span className="hero-loader-letter">C</span>
+            <span className="hero-loader-letter">O</span>
+            <span className="hero-loader-letter">D</span>
+            <span className="hero-loader-letter">E</span>
+          </div>
+        </div>
       </div>
 
       <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
