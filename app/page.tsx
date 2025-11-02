@@ -87,8 +87,8 @@ function StarsBackground() {
 
       const centerX = canvas.width / 2
       const centerY = canvas.height / 2
-      const offsetX = (mouseRef.current.x - centerX) * 0.03
-      const offsetY = (mouseRef.current.y - centerY) * 0.03
+      const offsetX = (mouseRef.current.x - centerX) * 0.3
+      const offsetY = (mouseRef.current.y - centerY) * 0.3
 
       starsRef.current.forEach((star) => {
         star.opacity += (Math.random() - 0.5) * star.twinkleSpeed
