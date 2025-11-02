@@ -707,3 +707,22 @@
 .light .hero-loader {
   opacity: 0.35;
 }
+
+/* Hide scrollbar for all browsers */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Ensure scrolling still works */
+html {
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overflow: -moz-scrollbars-none;
+}
