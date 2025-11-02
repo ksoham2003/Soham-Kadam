@@ -184,61 +184,65 @@ export default function Navigation({ activeSection, setActiveSection }: Navigati
             </div>
           </div>
 
-          {/* Mobile Navigation with Enhanced Animations */}
-          {isOpen && (
-            <div className="md:hidden mt-4 space-y-2">
-              {sections.map((section, index) => (
-                <button
-                  key={section.id}
-                  onClick={() => {
-                    setActiveSection(section.id)
-                    setIsOpen(false)
-                  }}
-                  className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-500 overflow-hidden group relative animate-slide-in-left ${
-                    activeSection === section.id
-                      ? "bg-primary/20 text-primary shadow-inner"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                  }`}
-                  style={{ 
-                    animationDelay: `${index * 100}ms`,
-                    animationFillMode: 'both'
-                  }}
-                  suppressHydrationWarning
-                >
-                  {/* Mobile item background animation */}
-                  <div className={`absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 transition-all duration-500 ${
-                    activeSection === section.id 
-                      ? "scale-100 opacity-100" 
-                      : "scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100"
-                  }`} />
-                  
-                  {/* Content container */}
-                  <div className="relative z-10">
-                    <span className="font-medium transition-all duration-300 group-hover:translate-x-2 group-hover:font-semibold">
-                      {section.label}
-                    </span>
-                  </div>
+{/* Mobile Navigation with Enhanced Animations */}
+{isOpen && (
+  <div className="md:hidden mt-4 space-y-2">
+    <div className="flex flex-col items-center space-y-2">
+      {sections.map((section, index) => (
+        <button
+          key={section.id}
+          onClick={() => {
+            setActiveSection(section.id)
+            setIsOpen(false)
+          }}
+          className={`block w-full text-center px-4 py-3 rounded-xl transition-all duration-500 overflow-hidden group relative animate-slide-in-left ${
+            activeSection === section.id
+              ? "bg-primary/20 text-primary shadow-inner"
+              : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+          }`}
+          style={{ 
+            animationDelay: `${index * 100}ms`,
+            animationFillMode: 'both'
+          }}
+          suppressHydrationWarning
+        >
+          {/* Mobile item background animation */}
+          <div className={`absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 transition-all duration-500 ${
+            activeSection === section.id 
+              ? "scale-100 opacity-100" 
+              : "scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100"
+          }`} />
+          
+          {/* Content container */}
+          <div className="relative z-10">
+            <span className="font-medium transition-all duration-300 group-hover:translate-x-2 group-hover:font-semibold">
+              {section.label}
+            </span>
+          </div>
 
-                  {/* Mobile active indicator with animation */}
-                  <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full transition-all duration-300 ${
-                    activeSection === section.id ? "scale-100 opacity-100 animate-pulse-subtle" : "scale-0 opacity-0"
-                  }`} />
+          {/* Mobile active indicator with animation */}
+          <div className={`absolute right-4 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-primary rounded-full transition-all duration-300 ${
+            activeSection === section.id ? "scale-100 opacity-100 animate-pulse-subtle" : "scale-0 opacity-0"
+          }`} />
 
-                  {/* Mobile slide-in underline */}
-                  <div className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-500 group-hover:w-full ${
-                    activeSection === section.id ? "w-full" : ""
-                  }`} />
-                </button>
-              ))}
-              
-              {/* Mobile theme toggle section */}
-              <div className="pt-2 border-t border-white/10 animate-slide-in-left" style={{ animationDelay: "500ms" }}>
-                <div className="px-4 py-2">
-                  <ModeToggle />
-                </div>
-              </div>
-            </div>
-          )}
+          {/* Mobile slide-in underline */}
+          <div className={`absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-500 group-hover:w-full ${
+            activeSection === section.id ? "w-full" : ""
+          }`} />
+        </button>
+      ))}
+      
+      {/* Mobile theme toggle section - Simple Version */}
+<div className="pt-2 animate-slide-in-left w-full" style={{ animationDelay: "500ms" }}>
+  <div className="flex justify-center px-4 py-2">
+    <div className="text-center">
+      <ModeToggle />
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+)}
         </div>
       </nav>
 
